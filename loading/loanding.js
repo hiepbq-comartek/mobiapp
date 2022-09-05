@@ -1,7 +1,7 @@
 import React from "react";
 import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
 
-const App = () => (
+export default Loading = () => (
   <View style={[styles.container, styles.horizontal]}>
     <ActivityIndicator size="large" />
   </View>
@@ -18,5 +18,3 @@ const styles = StyleSheet.create({
     padding: 10,
   },
 });
-
-export default App;
