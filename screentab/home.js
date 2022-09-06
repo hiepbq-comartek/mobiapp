@@ -43,7 +43,7 @@ function HomeStackScreen() {
         onScroll={(event) => {
           const scrolling = event.nativeEvent.contentOffset.y;
 
-          if (scrolling > 100) {
+          if (scrolling > 4) {
             setHeaderShown(false);
           } else {
             setHeaderShown(true);
@@ -76,84 +76,48 @@ function HomeStackScreen() {
             </TouchableOpacity>
           </View>
         </View>
-        <View style={stylehome.view}>
-          <Image
-            style={{ width: 40, height: 40, borderRadius: 40, margin: 10 }}
-            source={require("../accset/img/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpeg")}
-          />
-          <Text style={stylehome.textname}>Quang Hiệp</Text>
-          <Text style={stylehome.textstatus}>Đã đăng 5 giờ trước</Text>
-          <Text style={stylehome.textstatus_Block}>Hôm nay thật là vui</Text>
-          <Image />
-          <View style={stylehome.handleblock}>
-            <TouchableOpacity activeOpacity={0.8} style={stylehome.handlelike}>
-              <Text>Thích</Text>
-            </TouchableOpacity>
+        {/* {typeof data !== undefined ? (
+          data.map(profileuser => (
+            <View style={stylehome.view}>
+              <Image
+                style={{ width: 40, height: 40, borderRadius: 40, margin: 10 }}
+                source={require("../accset/img/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpeg")}
+              />
+              <Text style={stylehome.textname}>Quang Hiệp</Text>
+              <Text style={stylehome.textstatus}>Đã đăng 5 giờ trước</Text>
+              <Text style={stylehome.textstatus_Block}>
+                Hôm nay thật là vui
+              </Text>
+              <Image />
+              <View style={stylehome.handleblock}>
+                <TouchableOpacity
+                  activeOpacity={0.8}
+                  style={stylehome.handlelike}
+                >
+                  <Text>Thích</Text>
+                </TouchableOpacity>
 
-            <TouchableOpacity
-              activeOpacity={0.8}
-              style={stylehome.handlecomment}
-            >
-              <Text>Bình luận</Text>
-            </TouchableOpacity>
+                <TouchableOpacity
+                  activeOpacity={0.8}
+                  style={stylehome.handlecomment}
+                >
+                  <Text>Bình luận</Text>
+                </TouchableOpacity>
 
-            <TouchableOpacity activeOpacity={0.8} style={stylehome.handleshare}>
-              <Text>Chia sẻ</Text>
-            </TouchableOpacity>
+                <TouchableOpacity
+                  activeOpacity={0.8}
+                  style={stylehome.handleshare}
+                >
+                  <Text>Chia sẻ</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          ))
+        ) : (
+          <View>
+            <Text style={{justifyContent: "center",alignItems: "center",marginTop:20}}>Hiện tại chưa có bài viết nào</Text>
           </View>
-        </View>
-        <View style={stylehome.view}>
-          <Image
-            style={{ width: 40, height: 40, borderRadius: 40, margin: 10 }}
-            source={require("../accset/img/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpeg")}
-          />
-          <Text style={stylehome.textname}>Quang Hiệp</Text>
-          <Text style={stylehome.textstatus}>Đã đăng 5 giờ trước</Text>
-          <Text style={stylehome.textstatus_Block}>Hôm nay thật là vui</Text>
-          <Image />
-          <View style={stylehome.handleblock}>
-            <TouchableOpacity activeOpacity={0.8} style={stylehome.handlelike}>
-              <Text>Thích</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              activeOpacity={0.8}
-              style={stylehome.handlecomment}
-            >
-              <Text>Bình luận</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity activeOpacity={0.8} style={stylehome.handleshare}>
-              <Text>Chia sẻ</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-        <View style={stylehome.view}>
-          <Image
-            style={{ width: 40, height: 40, borderRadius: 40, margin: 10 }}
-            source={require("../accset/img/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpeg")}
-          />
-          <Text style={stylehome.textname}>Quang Hiệp</Text>
-          <Text style={stylehome.textstatus}>Đã đăng 5 giờ trước</Text>
-          <Text style={stylehome.textstatus_Block}>Hôm nay thật là vui</Text>
-          <Image />
-          <View style={stylehome.handleblock}>
-            <TouchableOpacity activeOpacity={0.8} style={stylehome.handlelike}>
-              <Text>Thích</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              activeOpacity={0.8}
-              style={stylehome.handlecomment}
-            >
-              <Text>Bình luận</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity activeOpacity={0.8} style={stylehome.handleshare}>
-              <Text>Chia sẻ</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
+        )} */}
       </ScrollView>
     </View>
   );

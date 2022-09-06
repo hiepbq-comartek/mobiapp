@@ -1,13 +1,10 @@
-import React from "react";
+import React, { useReducer } from "react";
 import Sigin from "./siginin";
-
+import { useState } from "react";
 import {
   SafeAreaView,
-  ScrollView,
-  StatusBar,
   StyleSheet,
   Text,
-  useColorScheme,
   View,
   TextInput,
   Image,
@@ -15,15 +12,67 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from "react-native/Libraries/NewAppScreen";
-
 const Siginout = ({ navigation }) => {
+  const profile = {
+    name: "",
+    email: "",
+    password: "",
+    checkpassword: "",
+  };
+  const Get_name = "get_name";
+  const Get_email = "get_email";
+  const Get_password = "get_password";
+  const Get_checkpassword = "get_password";
+
+  const setName = (payload) => {
+    return {
+      type: Get_name,
+      payload,
+    };
+  };
+  const setEmail = (payload) => {
+    return {
+      type: Get_email,
+      payload,
+    };
+  };
+  const setPassword = (payload) => {
+    return {
+      type: Get_password,
+      payload,
+    };
+  };
+  const setCheckPassword = (payload) => {
+    return {
+      type: Get_checkpassword,
+      payload,
+    };
+  };
+  const reduce = (state, action) => {
+    let newprofile;
+    switch (action.type) {
+      case Get_name:
+        return (newprofile = {
+          name: state.payload,
+        });
+      case Get_email:
+        return (newprofile = {
+          email: state.payload,
+        });
+      case Get_password:
+        return (newprofile = {
+          password: state.payload,
+        });
+      case Get_checkpassword:
+        return (newprofile = {
+          password: state.payload,
+        });
+    }
+    return newprofile;
+  };
+  const [state, dispath] = useReducer(reduce, profile);
+  const { name, email, password, checkpassword } = state;
+
   return (
     <SafeAreaView>
       <View>
@@ -38,10 +87,26 @@ const Siginout = ({ navigation }) => {
         </View>
 
         <View style={styles.form}>
-          <TextInput placeholder="Tên đăng nhập" style={styles.input} />
-          <TextInput placeholder="Email" style={styles.input} />
-          <TextInput placeholder="Mật khẩu" style={styles.input} />
-          <TextInput placeholder="Nhập lại Mật Khẩu" style={styles.input} />
+          <TextInput
+            placeholder="Tên đăng nhập"
+            style={styles.input}
+            onChangeText={(newText) => dispath(setName(newText))}
+          />
+          <TextInput
+            placeholder="Email"
+            style={styles.input}
+            onChangeText={(newText) => dispath(setEmail(newText))}
+          />
+          <TextInput
+            placeholder="Mật khẩu"
+            style={styles.input}
+            onChangeText={(newText) => dispath(setPassword(newText))}
+          />
+          <TextInput
+            placeholder="Nhập lại Mật Khẩu"
+            style={styles.input}
+            onChangeText={(newText) => dispath(setCheckPassword(newText))}
+          />
         </View>
         <View style={styles.logo}>
           <TouchableOpacity style={styles.button}>

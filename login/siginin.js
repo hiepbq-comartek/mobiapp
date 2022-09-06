@@ -1,13 +1,10 @@
 import React from "react";
-import Siginout from "./siginout";
+import { useState } from "react";
 
 import {
   SafeAreaView,
-  ScrollView,
-  StatusBar,
   StyleSheet,
   Text,
-  useColorScheme,
   View,
   TextInput,
   Image,
@@ -16,15 +13,10 @@ import {
   TouchableHighlight,
 } from "react-native";
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from "react-native/Libraries/NewAppScreen";
-
 const Sigin = ({ navigation }) => {
+  const [phoneormail, setphoneormail] = useState("");
+  const [password, setpassword] = useState("");
+  let data = { phoneormail, password };
   return (
     <SafeAreaView>
       <View>
@@ -39,8 +31,18 @@ const Sigin = ({ navigation }) => {
         </View>
 
         <View style={styles.form}>
-          <TextInput placeholder="Đăng nhập" style={styles.input} />
-          <TextInput placeholder="Mật Khẩu" style={styles.input} />
+          <TextInput
+            placeholder="Số điện thoại hoặc email"
+            style={styles.input}
+            onChangeText={(newText) => setphoneormail(newText)}
+            value={phoneormail}
+          />
+          <TextInput
+            placeholder="Mật Khẩu"
+            style={styles.input}
+            onChangeText={(newText) => setpassword(newText)}
+            value={password}
+          />
         </View>
         <View style={styles.logo}>
           <TouchableOpacity style={styles.button}>

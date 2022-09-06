@@ -33,6 +33,32 @@ function HomeStackScreens() {
           <Text style={style.namefriend}>Quang Hiệp</Text>
           <Text style={style.status}>Đang hoạt động</Text>
         </View>
+        {/* {typeof data !== undefined ? (
+          data.map(() => (
+            <>
+              <View style={style.blockfrend}>
+                <Image
+                  style={{ width: 24, height: 24, borderRadius: 40, margin: 4 }}
+                  source={require("../accset/img/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpeg")}
+                />
+                <Text style={style.namefriend}>Quang Hiệp</Text>
+                <Text style={style.status}>Đang hoạt động</Text>
+              </View>
+              <View style={style.blockfrend}>
+                <Image
+                  style={{ width: 24, height: 24, borderRadius: 40, margin: 4 }}
+                  source={require("../accset/img/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpeg")}
+                />
+                <Text style={style.namefriend}>Quang Hiệp</Text>
+                <Text style={style.status}>Đang hoạt động</Text>
+              </View>
+            </>
+          ))
+        ) : (
+          <View>
+            <Text style={{justifyContent: "center",alignItems: "center",marginTop:20}}>Bạn đang cô đơn :))</Text>
+          </View>
+        )} */}
       </ScrollView>
     </View>
   );

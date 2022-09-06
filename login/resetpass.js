@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useState } from "react";
 import {
   SafeAreaView,
   ScrollView,
@@ -15,6 +15,10 @@ import {
 } from "react-native";
 
 const Resetpass = () => {
+  const [code, setcode] = useState("");
+  const [password, setPassword] = useState("");
+  const [checkpassword, setCheckPassword] = useState("");
+  const data = { code, password, checkpassword };
   return (
     <SafeAreaView>
       <View>
@@ -32,9 +36,21 @@ const Resetpass = () => {
           <View style={styles.logo}>
             <Text style={styles.textressetpass}>Quên mật khẩu</Text>
           </View>
-          <TextInput placeholder="Nhập mã code" style={styles.input} />
-          <TextInput placeholder="Mật khẩu" style={styles.input} />
-          <TextInput placeholder="Nhập lại Mật Khẩu" style={styles.input} />
+          <TextInput
+            placeholder="Nhập mã code"
+            style={styles.input}
+            onChangeText={(newText) => setcode(newText)}
+          />
+          <TextInput
+            placeholder="Mật khẩu"
+            style={styles.input}
+            onChangeText={(newText) => setPassword(newText)}
+          />
+          <TextInput
+            placeholder="Nhập lại Mật Khẩu"
+            style={styles.input}
+            onChangeText={(newText) => setCheckPassword(newText)}
+          />
         </View>
         <View style={styles.logo}>
           <TouchableOpacity style={styles.button}>

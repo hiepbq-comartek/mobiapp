@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 import {
   Button,
   Text,
@@ -12,11 +13,14 @@ import {
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Settinguser from "../component/settingusert";
 const SettingsStack = createNativeStackNavigator();
 
 function ProfileStackScreen() {
+  const [setting, Setsetting] = useState(false);
   return (
     <View>
+      {setting && <Settinguser Setsetting={Setsetting} setting={setting} />}
       <View style={style.projectuse}>
         <Image
           style={{ width: 60, height: 60, borderRadius: 40 }}
@@ -29,7 +33,11 @@ function ProfileStackScreen() {
         <TouchableOpacity activeOpacity={0.8} style={style.buttoncolor}>
           <Text>Đảo màu giao diện </Text>
         </TouchableOpacity>
-        <TouchableOpacity activeOpacity={0.8} style={style.buttoncolor}>
+        <TouchableOpacity
+          onPress={() => Setsetting(!setting)}
+          activeOpacity={0.8}
+          style={style.buttoncolor}
+        >
           <Text>Thay đổi thông tin </Text>
         </TouchableOpacity>
       </View>
