@@ -1,6 +1,7 @@
 import React, { useReducer } from "react";
 import Sigin from "./siginin";
 import { useState } from "react";
+import ValidateEmail from "../component/checkdata";
 import {
   SafeAreaView,
   StyleSheet,
@@ -10,9 +11,12 @@ import {
   Image,
   Button,
   TouchableOpacity,
+  Alert,
 } from "react-native";
-
+import ValidatePassword from "../component/checkpass";
 const Siginout = ({ navigation }) => {
+  const [oncheck, setoncheck] = useState(false);
+  const [oncheckpass, setoncheckpass] = useState(false);
   const profile = {
     name: "",
     email: "",
@@ -88,24 +92,68 @@ const Siginout = ({ navigation }) => {
 
         <View style={styles.form}>
           <TextInput
-            placeholder="Tên đăng nhập"
+            placeholder="Tên tài khoản"
             style={styles.input}
             onChangeText={(newText) => dispath(setName(newText))}
           />
           <TextInput
             placeholder="Email"
             style={styles.input}
-            onChangeText={(newText) => dispath(setEmail(newText))}
+            onChangeText={(newText) => {
+              setoncheck(true);
+              const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+              if (reg.test(email) === true) {
+                setoncheck(false);
+              } else if (newText === "") {
+                setoncheck(false);
+              } else {
+                setoncheck(true);
+              }
+              dispath(setEmail(newText));
+            }}
           />
+          {/* dispath(setEmail(newText)); */}
+          {oncheck && <ValidateEmail />}
           <TextInput
             placeholder="Mật khẩu"
             style={styles.input}
-            onChangeText={(newText) => dispath(setPassword(newText))}
+            onChangeText={(newText) => {
+              setoncheckpass(true);
+              const strongRegex = new RegExp(
+                "^(?=.{14,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$",
+                "g"
+              );
+              const mediumRegex = new RegExp(
+                "^(?=.{10,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$",
+                "g"
+              );
+              const enoughRegex = new RegExp("(?=.{8,}).*", "g");
+              if (newText.length == 0) {
+                setoncheckpass(false);
+              } else if (false == enoughRegex.test(newText)) {
+                setoncheckpass(true);
+              } else if (strongRegex.test(newText)) {
+                setoncheckpass(false);
+              } else if (mediumRegex.test(newText)) {
+                setoncheckpass(false);
+              } else {
+                setoncheckpass(false);
+              }
+              dispath(setPassword(newText));
+            }}
           />
+          {oncheckpass && <ValidatePassword />}
           <TextInput
             placeholder="Nhập lại Mật Khẩu"
             style={styles.input}
-            onChangeText={(newText) => dispath(setCheckPassword(newText))}
+            onChangeText={(newText) => {
+              if (newText == password) {
+                Alert.alert("oke");
+              } else {
+                Alert.alert(password);
+              }
+              dispath(setCheckPassword(newText));
+            }}
           />
         </View>
         <View style={styles.logo}>
@@ -115,7 +163,7 @@ const Siginout = ({ navigation }) => {
         </View>
         <View style={styles.logo}>
           <Text>
-            Bạn đã có tài khoản {""}
+            Bạn đã có tài khoản
             <TouchableOpacity style={styles.siginout}>
               <Button
                 style={styles.siginout}
@@ -166,7 +214,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   siginout: {
-    marginTop: -3,
+    marginTop: -12,
+    fontSize: 4,
   },
   textsigin: {
     color: "blue",

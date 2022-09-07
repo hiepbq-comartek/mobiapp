@@ -9,6 +9,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
+  SafeAreaView,
 } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -16,10 +17,10 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Settinguser from "../component/settingusert";
 const SettingsStack = createNativeStackNavigator();
 
-function ProfileStackScreen() {
+function ProfileStackScreen({ navigation }) {
   const [setting, Setsetting] = useState(false);
   return (
-    <View>
+    <SafeAreaView>
       {setting && <Settinguser Setsetting={Setsetting} setting={setting} />}
       <View style={style.projectuse}>
         <Image
@@ -43,10 +44,13 @@ function ProfileStackScreen() {
       </View>
 
       <View style={style.account}>
-        <Button title="Đăng xuất" />
+        <Button
+          title="Đăng xuất"
+          onPress={() => navigation.navigate("Đăng nhập")}
+        />
         <Button title="Xóa tài khoản" />
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 const style = StyleSheet.create({

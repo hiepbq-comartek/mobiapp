@@ -6,11 +6,15 @@ import {
   TouchableOpacity,
   ScrollView,
   Alert,
+  SafeAreaView,
 } from "react-native";
 import { stylelike } from "../style/stylelike";
 function LikeStackScreen() {
   return (
-    <View>
+    <SafeAreaView>
+      <View style={stylelike.textcenter}>
+        <Text style={stylelike.textcenter}>Yêu thích</Text>
+      </View>
       <ScrollView>
         <View style={stylelike.view}>
           <Image
@@ -85,7 +89,7 @@ function LikeStackScreen() {
           </View>
         )} */}
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }
 export default LikeStackScreen;

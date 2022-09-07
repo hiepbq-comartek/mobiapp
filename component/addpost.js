@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   Image,
   Alert,
+  SafeAreaView,
 } from "react-native";
 
 function Addpost({ Setaddpost, addpost }) {
@@ -84,14 +85,14 @@ const style = StyleSheet.create({
   },
   textaddpost: {
     textAlign: "center",
-    marginTop: 20,
+    marginTop: 60,
     marginBottom: 10,
     fontSize: 24,
   },
   buttonaddpost: {
     position: "absolute",
     right: 16,
-    top: 20,
+    top: 60,
     backgroundColor: "#fff",
     width: 52,
     height: 28,
@@ -103,7 +104,7 @@ const style = StyleSheet.create({
   buttonaddposts: {
     position: "absolute",
     left: 4,
-    top: 20,
+    top: 60,
     width: 52,
     height: 28,
     justifyContent: "center",

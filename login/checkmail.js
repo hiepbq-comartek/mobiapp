@@ -9,13 +9,20 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
-import ValidatePassword from "../component/checkpass";
-const Resetpass = ({ navigation }) => {
+import ValidateEmail from "../component/checkdata";
+
+const Resetemail = ({ navigation }) => {
+  const [oncheck, setoncheck] = useState(false);
   const [code, setcode] = useState("");
   const [password, setPassword] = useState("");
   const [checkpassword, setCheckPassword] = useState("");
-  const [oncheckpass, setoncheckpass] = useState(false);
-  const data = { code, password, checkpassword };
+  // if (password === checkpassword) {
+  //   return password;
+  // } else
+  //   <View>
+  //     <Text>Mật khẩu không khớp</Text>
+  //   </View>;
+  // const data = { code, password, checkpassword };
   return (
     <SafeAreaView>
       <View>
@@ -31,57 +38,37 @@ const Resetpass = ({ navigation }) => {
 
         <View style={styles.form}>
           <View style={styles.logo}>
-            <Text style={styles.textressetpass}>Quên mật khẩu</Text>
+            <Text style={styles.textressetpass}>Nhập email</Text>
           </View>
           <TextInput
-            placeholder="Nhập mã code"
-            style={styles.input}
-            onChangeText={(newText) => setcode(newText)}
-          />
-          <TextInput
-            placeholder="Mật khẩu"
+            placeholder="Email"
             style={styles.input}
             onChangeText={(newText) => {
-              setoncheckpass(true);
-              const strongRegex = new RegExp(
-                "^(?=.{14,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$",
-                "g"
-              );
-              const mediumRegex = new RegExp(
-                "^(?=.{10,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$",
-                "g"
-              );
-              const enoughRegex = new RegExp("(?=.{8,}).*", "g");
-              if (newText.length == 0) {
-                setoncheckpass(false);
-              } else if (false == enoughRegex.test(newText)) {
-                setoncheckpass(true);
-              } else if (strongRegex.test(newText)) {
-                setoncheckpass(true);
-              } else if (mediumRegex.test(newText)) {
-                setoncheckpass(true);
+              setoncheck(true);
+              const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+              if (reg.test(code) === true) {
+                setoncheck(false);
+              } else if (newText === "") {
+                setoncheck(false);
               } else {
-                setoncheckpass(false);
+                setoncheck(true);
               }
-              setPassword(newText);
+              setcode(newText);
             }}
           />
-          {oncheckpass && <ValidatePassword />}
-          {/* setPassword(newText) */}
-          <TextInput
-            placeholder="Nhập lại Mật Khẩu"
-            style={styles.input}
-            onChangeText={(newText) => setCheckPassword(newText)}
-          />
         </View>
+        {oncheck && <ValidateEmail />}
         <View style={styles.logo}>
-          <TouchableOpacity style={styles.button}>
-            <Text>Đổi Mật khẩu</Text>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate("Quên mật khẩu")}
+          >
+            <Text>Tìm tài khoản</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.logo}>
           <Text>
-            bạn đã có tài khoản {""}
+            đăng nhập tài khoản khác {""}
             <TouchableOpacity
               style={styles.siginout}
               onPress={() => navigation.navigate("Đăng nhập")}
@@ -139,4 +126,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Resetpass;
+export default Resetemail;

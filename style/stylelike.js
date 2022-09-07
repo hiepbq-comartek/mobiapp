@@ -75,4 +75,8 @@ export const stylelike = StyleSheet.create({
     paddingLeft: 10,
     marginLeft: 270,
   },
+  textcenter: {
+    alignItems: "center",
+    fontSize: 20,
+  },
 });

@@ -9,14 +9,14 @@ export const stylesettinguser = StyleSheet.create({
   },
   textaddpost: {
     textAlign: "center",
-    marginTop: 20,
+    marginTop: 60,
     marginBottom: 10,
     fontSize: 24,
   },
   buttonaddpost: {
     position: "absolute",
     right: 16,
-    top: 20,
+    top: 60,
     backgroundColor: "#fff",
     width: 52,
     height: 28,

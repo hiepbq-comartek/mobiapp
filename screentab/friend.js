@@ -8,13 +8,14 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
+  SafeAreaView,
 } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 const HomeStack = createNativeStackNavigator();
 
 function HomeStackScreens() {
   return (
-    <View>
+    <SafeAreaView>
       <Text style={style.friends}>Tất cả bạn bè</Text>
       <ScrollView>
         <View style={style.blockfrend}>
@@ -60,7 +61,7 @@ function HomeStackScreens() {
           </View>
         )} */}
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }
 const style = StyleSheet.create({
