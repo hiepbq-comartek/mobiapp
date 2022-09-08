@@ -13,7 +13,6 @@ export default function ValidateEmail() {
 const style = StyleSheet.create({
   textcheckmail: {
     marginLeft: 32,
-    marginTop: 8,
     color: "red",
   },
 });

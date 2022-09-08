@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -8,15 +8,29 @@ import {
   Alert,
   SafeAreaView,
 } from "react-native";
+import Searchauthor from "../component/searchauthor";
 
 export default function Search() {
+  const [authorsearch, setauthorsearch] = useState(true);
   return (
     <SafeAreaView style={style.viewsearch}>
+      <Text
+        style={{
+          alignItems: "center",
+          alignContent: "center",
+          width: 390,
+          left: 120,
+          fontSize: 20,
+        }}
+      >
+        Tìm kiếm tác giả
+      </Text>
       <TextInput
         style={style.styleInput}
         placeholder="Tìm kiếm tác giả"
         maxLength={36}
       />
+      {authorsearch && <Searchauthor />}
       <TouchableOpacity
         onPress={() => Alert.alert("test")}
         activeOpacity={0.9}
@@ -45,7 +59,7 @@ const style = StyleSheet.create({
   },
   handlesearh: {
     width: 60,
-    top: 40,
+    top: 28,
     left: 160,
     marginLeft: 10,
   },

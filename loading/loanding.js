@@ -1,9 +1,9 @@
 import React from "react";
-import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
+import { ActivityIndicator, StyleSheet, View } from "react-native";
 
-export default Loading = () => (
+const Loading = () => (
   <View style={[styles.container, styles.horizontal]}>
-    <ActivityIndicator size="large" />
+    <ActivityIndicator />
   </View>
 );
 
@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
+    marginTop: 160,
   },
   horizontal: {
     flexDirection: "row",
@@ -18,3 +19,4 @@ const styles = StyleSheet.create({
     padding: 10,
   },
 });
+export default Loading;

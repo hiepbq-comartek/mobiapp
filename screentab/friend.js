@@ -16,7 +16,18 @@ const HomeStack = createNativeStackNavigator();
 function HomeStackScreens() {
   return (
     <SafeAreaView>
-      <Text style={style.friends}>Tất cả bạn bè</Text>
+      <Text
+        style={{
+          alignItems: "center",
+          alignContent: "center",
+          width: 390,
+          left: 112,
+          fontSize: 20,
+          marginBottom: 20,
+        }}
+      >
+        Tác giả đã theo dõi
+      </Text>
       <ScrollView>
         <View style={style.blockfrend}>
           <Image
@@ -38,21 +49,21 @@ function HomeStackScreens() {
           data.map(() => (
             <>
               <View style={style.blockfrend}>
-                <Image
-                  style={{ width: 24, height: 24, borderRadius: 40, margin: 4 }}
-                  source={require("../accset/img/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpeg")}
-                />
-                <Text style={style.namefriend}>Quang Hiệp</Text>
-                <Text style={style.status}>Đang hoạt động</Text>
-              </View>
-              <View style={style.blockfrend}>
-                <Image
-                  style={{ width: 24, height: 24, borderRadius: 40, margin: 4 }}
-                  source={require("../accset/img/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpeg")}
-                />
-                <Text style={style.namefriend}>Quang Hiệp</Text>
-                <Text style={style.status}>Đang hoạt động</Text>
-              </View>
+          <Image
+            style={{ width: 24, height: 24, borderRadius: 40, margin: 4 }}
+            source={require("../accset/img/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpeg")}
+          />
+          <Text style={style.namefriend}>Quang Hiệp</Text>
+          <Text style={style.status}>Đang hoạt động</Text>
+        </View>
+        <View style={style.blockfrend}>
+          <Image
+            style={{ width: 24, height: 24, borderRadius: 40, margin: 4 }}
+            source={require("../accset/img/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpeg")}
+          />
+          <Text style={style.namefriend}>Quang Hiệp</Text>
+          <Text style={style.status}>Đang hoạt động</Text>
+        </View>
             </>
           ))
         ) : (

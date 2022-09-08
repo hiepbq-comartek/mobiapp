@@ -1,7 +1,8 @@
 import React, { useReducer } from "react";
 import Sigin from "./siginin";
 import { useState } from "react";
-import ValidateEmail from "../component/checkdata";
+import ValidateEmail from "../component/checkmail";
+import ValidatecomfigPassword from "../component/checkcomfigpass";
 import {
   SafeAreaView,
   StyleSheet,
@@ -15,8 +16,13 @@ import {
 } from "react-native";
 import ValidatePassword from "../component/checkpass";
 const Siginout = ({ navigation }) => {
+  const alert = (text) => {
+    return Alert.alert(text);
+  };
+
   const [oncheck, setoncheck] = useState(false);
   const [oncheckpass, setoncheckpass] = useState(false);
+  const [oncheckcomfig, setoncheckcomfig] = useState(false);
   const profile = {
     name: "",
     email: "",
@@ -26,7 +32,7 @@ const Siginout = ({ navigation }) => {
   const Get_name = "get_name";
   const Get_email = "get_email";
   const Get_password = "get_password";
-  const Get_checkpassword = "get_password";
+  const Get_checkpassword = "get_checkpassword";
 
   const setName = (payload) => {
     return {
@@ -57,26 +63,32 @@ const Siginout = ({ navigation }) => {
     switch (action.type) {
       case Get_name:
         return (newprofile = {
-          name: state.payload,
+          ...state,
+          name: action.payload,
         });
       case Get_email:
         return (newprofile = {
-          email: state.payload,
+          ...state,
+          email: action.payload,
         });
       case Get_password:
         return (newprofile = {
-          password: state.payload,
+          ...state,
+          password: action.payload,
         });
       case Get_checkpassword:
         return (newprofile = {
-          password: state.payload,
+          ...state,
+          checkpassword: action.payload,
         });
+      default:
+        state;
     }
     return newprofile;
   };
   const [state, dispath] = useReducer(reduce, profile);
   const { name, email, password, checkpassword } = state;
-
+  // Alert.alert(password);
   return (
     <SafeAreaView>
       <View>
@@ -112,7 +124,6 @@ const Siginout = ({ navigation }) => {
               dispath(setEmail(newText));
             }}
           />
-          {/* dispath(setEmail(newText)); */}
           {oncheck && <ValidateEmail />}
           <TextInput
             placeholder="Mật khẩu"
@@ -139,6 +150,7 @@ const Siginout = ({ navigation }) => {
               } else {
                 setoncheckpass(false);
               }
+
               dispath(setPassword(newText));
             }}
           />
@@ -147,15 +159,21 @@ const Siginout = ({ navigation }) => {
             placeholder="Nhập lại Mật Khẩu"
             style={styles.input}
             onChangeText={(newText) => {
-              if (newText == password) {
-                Alert.alert("oke");
+              if (newText === password) {
+                setoncheckcomfig(false);
+              } else if (newText == "") {
+                setoncheckcomfig(false);
               } else {
-                Alert.alert(password);
+                {
+                  setoncheckcomfig(true);
+                }
               }
+
               dispath(setCheckPassword(newText));
             }}
           />
         </View>
+        {oncheckcomfig && <ValidatecomfigPassword />}
         <View style={styles.logo}>
           <TouchableOpacity style={styles.button}>
             <Text>Đăng ký</Text>
@@ -168,11 +186,7 @@ const Siginout = ({ navigation }) => {
               <Button
                 style={styles.siginout}
                 title="đăng nhập"
-                onPress={() =>
-                  navigation.navigate("Đăng nhập", {
-                    title: "test",
-                  })
-                }
+                onPress={() => navigation.navigate("Đăng nhập")}
               />
             </TouchableOpacity>
           </Text>

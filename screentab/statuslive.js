@@ -24,7 +24,16 @@ function LikeStackScreen() {
           <Text style={stylelike.textname}>Quang Hiệp</Text>
           <Text style={stylelike.textstatus}>Đã đăng 5 giờ trước</Text>
           <Text style={stylelike.textstatus_Block}>Hôm nay thật là vui</Text>
-          <Image />
+          <Image
+            style={{
+              width: 340,
+              height: 220,
+              marginTop: 10,
+              marginLeft: 10,
+              marginRight: 10,
+            }}
+            source={require("../accset/img/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpeg")}
+          />
           <View style={stylelike.handleblock}>
             <TouchableOpacity
               onPress={() => Alert.alert("test")}

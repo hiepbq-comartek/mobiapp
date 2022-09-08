@@ -1,5 +1,6 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
+
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import ProfileStackScreen from "./screentab/setting";
@@ -11,12 +12,14 @@ import Signout from "./login/siginout";
 import Comfigpassword from "./login/resetpass";
 import SearchStackScreen from "./screentab/search";
 import Checkemail from "./login/checkmail";
+import PageStart from "./login/pagestart";
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 function Login() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="mở đầu" component={PageStart} />
       <Stack.Screen name="Đăng nhập" component={Siginin} />
       <Stack.Screen name="Đăng ký" component={Signout} />
       <Stack.Screen name="Tìm tài khoản" component={Checkemail} />

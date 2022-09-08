@@ -1,6 +1,5 @@
 import * as React from "react";
 import { StyleSheet } from "react-native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 export const stylelike = StyleSheet.create({
   projectuse: {
     marginTop: 20,

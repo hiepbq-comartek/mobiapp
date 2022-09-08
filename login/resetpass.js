@@ -10,11 +10,13 @@ import {
   TouchableOpacity,
 } from "react-native";
 import ValidatePassword from "../component/checkpass";
+import ValidatecomfigPassword from "../component/checkcomfigpass";
 const Resetpass = ({ navigation }) => {
   const [code, setcode] = useState("");
   const [password, setPassword] = useState("");
   const [checkpassword, setCheckPassword] = useState("");
   const [oncheckpass, setoncheckpass] = useState(false);
+  const [oncheckcomfig, setoncheckcomfig] = useState(false);
   const data = { code, password, checkpassword };
   return (
     <SafeAreaView>
@@ -67,13 +69,25 @@ const Resetpass = ({ navigation }) => {
             }}
           />
           {oncheckpass && <ValidatePassword />}
-          {/* setPassword(newText) */}
           <TextInput
             placeholder="Nhập lại Mật Khẩu"
             style={styles.input}
-            onChangeText={(newText) => setCheckPassword(newText)}
+            onChangeText={(newText) => {
+              if (newText === password) {
+                setoncheckcomfig(false);
+              } else if (newText == "") {
+                setoncheckcomfig(false);
+              } else {
+                {
+                  setoncheckcomfig(true);
+                }
+              }
+
+              setCheckPassword(newText);
+            }}
           />
         </View>
+        {oncheckcomfig && <ValidatecomfigPassword />}
         <View style={styles.logo}>
           <TouchableOpacity style={styles.button}>
             <Text>Đổi Mật khẩu</Text>

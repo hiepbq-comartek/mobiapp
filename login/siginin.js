@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import ValidateEmail from "../component/checkdata";
+import ValidateEmail from "../component/checkmail";
+
 import {
   SafeAreaView,
   StyleSheet,
@@ -71,9 +72,9 @@ const Sigin = ({ navigation }) => {
               } else if (false == enoughRegex.test(newText)) {
                 setoncheckpass(true);
               } else if (strongRegex.test(newText)) {
-                setoncheckpass(true);
+                setoncheckpass(false);
               } else if (mediumRegex.test(newText)) {
-                setoncheckpass(true);
+                setoncheckpass(false);
               } else {
                 setoncheckpass(false);
               }

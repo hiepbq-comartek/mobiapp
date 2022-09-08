@@ -9,7 +9,7 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
-import ValidateEmail from "../component/checkdata";
+import ValidateEmail from "../component/checkmail";
 
 const Resetemail = ({ navigation }) => {
   const [oncheck, setoncheck] = useState(false);
