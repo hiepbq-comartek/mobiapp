@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useReducer } from "react";
 import {
   Text,
   View,
@@ -9,11 +9,18 @@ import {
   SafeAreaView,
 } from "react-native";
 import { stylelike } from "../style/stylelike";
+import { SimpleLineIcons } from '@expo/vector-icons'; 
+import  Reduce  from "../reducer/reduce";
+import { init } from "../reducer/init";
+import {Checkfollow} from "../reducer/output"
+
 function LikeStackScreen() {
+  const [state, dispatch] = useReducer(Reduce, init);
+  const {checkFollow,checklike,Checkcomment,job,Jobs,numberlike,numbercomment,author,addImg} = state
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{paddingBottom:20,marginBottom:100,flex:1}}>
       <View style={stylelike.textcenter}>
-        <Text style={stylelike.textcenter}>Yêu thích</Text>
+        <Text style={stylelike.textcenter}>Khám Phá</Text>
       </View>
       <ScrollView>
         <View style={stylelike.view}>
@@ -22,6 +29,14 @@ function LikeStackScreen() {
             source={require("../accset/img/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpeg")}
           />
           <Text style={stylelike.textname}>Quang Hiệp</Text>
+          <View style={{top:-10,left:280}}>
+            <TouchableOpacity
+              onPress={() => dispatch(Checkfollow(!checkFollow))}
+              activeOpacity={0.8}
+              style={stylelike.handlelike}
+            >{checkFollow ? <SimpleLineIcons name="user-following" size={20} color="green" /> :<SimpleLineIcons name = "user-follow" size = {20} color = "black" />}   
+            </TouchableOpacity>
+          </View>
           <Text style={stylelike.textstatus}>Đã đăng 5 giờ trước</Text>
           <Text style={stylelike.textstatus_Block}>Hôm nay thật là vui</Text>
           <Image
@@ -34,27 +49,8 @@ function LikeStackScreen() {
             }}
             source={require("../accset/img/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpeg")}
           />
-          <View style={stylelike.handleblock}>
-            <TouchableOpacity
-              onPress={() => Alert.alert("test")}
-              activeOpacity={0.8}
-              style={stylelike.handlelike}
-            >
-              <Text>Bỏ thích</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              activeOpacity={0.8}
-              style={stylelike.handlecomment}
-            >
-              <Text>Bình luận</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity activeOpacity={0.8} style={stylelike.handleshare}>
-              <Text>Chia sẻ</Text>
-            </TouchableOpacity>
-          </View>
         </View>
+        
         {/* {typeof data !== undefined ? (
           data.map(() => (
             <View style={stylelike.view}>

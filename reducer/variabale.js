@@ -1,0 +1,11 @@
+export const Delete = "Delete_job";
+export const AddJob = "Add_job";
+export const CheckLike = 'Checklike';
+export const Checkcomment = 'Checkcomment';
+export const Adduser = 'Adduser';
+export const Addimg = 'AddImg';
+export const CheckFollow = 'Checkfollow';
+export const Numberlike = 'Numberlike';
+export const Numbercomment = 'Numbercomment';
+export const SetJob = 'SetJob'
+export const Addcommnet = 'Addcommnet'

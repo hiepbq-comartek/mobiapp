@@ -6,13 +6,11 @@ export const stylehome = StyleSheet.create({
   },
   textname: {
     top: 8,
-    position: "absolute",
     fontSize: 16,
     left: 70,
   },
   textstatus: {
     top: 32,
-    position: "absolute",
     fontSize: 10,
     left: 70,
   },
@@ -23,7 +21,7 @@ export const stylehome = StyleSheet.create({
     paddingHorizontal: 32,
     borderRadius: 40,
     elevation: 2,
-    backgroundColor: "#ccc",
+    backgroundColor: "#fff",
     margin: 20,
   },
   textstatus_Block: {
@@ -36,7 +34,8 @@ export const stylehome = StyleSheet.create({
     backgroundColor: "#ccc",
     width: 360,
     height: 540,
-    margin: 14,
+    marginLeft:8,
+    marginRight:8,
     borderRadius: 8,
   },
   handleblock: {
@@ -95,11 +94,6 @@ export const stylehome = StyleSheet.create({
     width: 320,
     marginTop: 20,
     marginLeft: 16,
-  },
-  handlefollow: {
-    position: "absolute",
-    top: 32,
-    left: 36,
   },
   handletextfollow: {
     fontSize: 20,

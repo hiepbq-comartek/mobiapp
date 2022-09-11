@@ -19,7 +19,7 @@ const Resetpass = ({ navigation }) => {
   const [oncheckcomfig, setoncheckcomfig] = useState(false);
   const data = { code, password, checkpassword };
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{backgroundColor:"#fff",height:999}}>
       <View>
         <View style={styles.logo}>
           <Image

@@ -46,7 +46,7 @@ function ProfileStackScreen({ navigation }) {
       <View style={style.account}>
         <Button
           title="Đăng xuất"
-          onPress={() => navigation.navigate("Đăng nhập")}
+          onPress={() => navigation.replace("Đăng nhập")}
         />
         <Button title="Xóa tài khoản" />
       </View>

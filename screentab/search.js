@@ -11,14 +11,14 @@ import {
 import Searchauthor from "../component/searchauthor";
 
 export default function Search() {
-  const [authorsearch, setauthorsearch] = useState(true);
+  const [authorsearch, setauthorsearch] = useState(false);
   return (
     <SafeAreaView style={style.viewsearch}>
       <Text
         style={{
           alignItems: "center",
           alignContent: "center",
-          width: 390,
+          width: 340,
           left: 120,
           fontSize: 20,
         }}
@@ -26,9 +26,17 @@ export default function Search() {
         Tìm kiếm tác giả
       </Text>
       <TextInput
-        style={style.styleInput}
+        style={{width:346,height:40,backgroundColor:'#ccc',paddingLeft:20,borderRadius:16,marginLeft:16,marginRight:16,marginTop:20}}
         placeholder="Tìm kiếm tác giả"
         maxLength={36}
+        onChangeText={(newtext)=>{
+          if(newtext==''){
+              setauthorsearch(false)
+          }
+          else {
+            setauthorsearch(true)
+          }
+        }}
       />
       {authorsearch && <Searchauthor />}
       <TouchableOpacity
@@ -60,7 +68,7 @@ const style = StyleSheet.create({
   handlesearh: {
     width: 60,
     top: 28,
-    left: 160,
+    left: 152,
     marginLeft: 10,
   },
 });

@@ -24,7 +24,7 @@ const Resetemail = ({ navigation }) => {
   //   </View>;
   // const data = { code, password, checkpassword };
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{backgroundColor:"#fff",height:999}}>
       <View>
         <View style={styles.logo}>
           <Image

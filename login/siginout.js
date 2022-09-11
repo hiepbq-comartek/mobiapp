@@ -90,7 +90,7 @@ const Siginout = ({ navigation }) => {
   const { name, email, password, checkpassword } = state;
   // Alert.alert(password);
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{backgroundColor:"#fff",height:999}}>
       <View>
         <View style={styles.logo}>
           <Image

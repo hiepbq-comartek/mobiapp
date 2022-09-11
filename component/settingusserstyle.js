@@ -12,10 +12,11 @@ export const stylesettinguser = StyleSheet.create({
     marginTop: 60,
     marginBottom: 10,
     fontSize: 24,
+    right:10
   },
   buttonaddpost: {
     position: "absolute",
-    right: 16,
+    right: 24,
     top: 60,
     backgroundColor: "#fff",
     width: 52,
@@ -41,5 +42,6 @@ export const stylesettinguser = StyleSheet.create({
   },
   texthandle: {
     fontSize: 20,
+    right:12
   },
 });

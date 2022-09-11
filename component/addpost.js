@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useReducer } from "react";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   View,
   Text,
@@ -43,7 +44,7 @@ function Addpost({ Setaddpost, addpost }) {
         value={post}
       />
       <Image
-        style={{ width: 360, height: 360, margin: 16 }}
+        style={{ width: 360, height: 360,marginLeft:8,marginTop:10 }}
         source={require("../accset/img/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpeg")}
       />
       <View style={style.handleuser}>
@@ -88,10 +89,11 @@ const style = StyleSheet.create({
     marginTop: 60,
     marginBottom: 10,
     fontSize: 24,
+    
   },
   buttonaddpost: {
     position: "absolute",
-    right: 16,
+    right: 20,
     top: 60,
     backgroundColor: "#fff",
     width: 52,

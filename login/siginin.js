@@ -22,7 +22,7 @@ const Sigin = ({ navigation }) => {
   const [oncheckpass, setoncheckpass] = useState(false);
   let data = { phoneormail, password };
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{backgroundColor:"#fff",height:999}}>
       <View>
         <View style={styles.logo}>
           <Image
@@ -86,7 +86,7 @@ const Sigin = ({ navigation }) => {
         {oncheckpass && <ValidatePassword />}
         <View style={styles.logo}>
           <TouchableOpacity
-            onPress={() => navigation.navigate("Homes")}
+            onPress={() => navigation.replace("Homes")}
             style={styles.button}
           >
             <Text>Đăng nhập</Text>

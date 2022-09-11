@@ -9,12 +9,12 @@ const PageStart = ({ navigation }) => {
     navigation.navigate("Đăng nhập");
   }, 3000);
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{backgroundColor:"#fff",height:999}}>
       <Image
-        style={{ width: 160, height: 160, marginTop: 240, marginLeft: 120 }}
+        style={{ width: 160, height: 160, marginTop: 240, marginLeft: 108 }}
         source={require("../accset/img/z3681068714710_a4ea01c851d38352e46f609315e51bc8.jpg")}
       />
-      <Loanding />
+      <Loanding  />
     </SafeAreaView>
   );
 };

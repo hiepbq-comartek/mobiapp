@@ -1,17 +1,20 @@
 import React from "react";
 import { useState } from "react";
-import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
+import { Text, View, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
+import { SimpleLineIcons } from '@expo/vector-icons';
 export default function Searchauthor() {
   return (
     <View style={style.authors}>
-      <View style={{ flexDirection: "row" }}>
-        <TouchableOpacity>
+      <ScrollView>
+      <View style={{ flexDirection: "row",width:356,backgroundColor:'#ccc',borderRadius:4 }}>
+        <TouchableOpacity style={{paddingLeft:40}}>
           <Text>quang hiep</Text>
         </TouchableOpacity>
-        <TouchableOpacity>
-          <Text>x</Text>
+        <TouchableOpacity style={{left:200}}>
+        <SimpleLineIcons name="user-follow" size={16} color="black" />
         </TouchableOpacity>
       </View>
+      </ScrollView>
     </View>
   );
 }
@@ -23,8 +26,8 @@ const style = StyleSheet.create({
   authors: {
     marginTop: 32,
     width: 360,
-    backgroundColor: "red",
     marginLeft: 16,
     height: 160,
+    borderRadius:8
   },
 });
