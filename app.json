@@ -18,7 +18,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "usesIcloudStorage": true,
+      "bundleIdentifier": "com.yourname.yourapp"
     },
     "android": {
       "adaptiveIcon": {

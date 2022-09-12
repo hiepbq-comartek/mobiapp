@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useReducer } from "react";
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import * as DocumentPicker from "expo-document-picker";
 import {
   View,
   Text,
@@ -11,21 +12,27 @@ import {
   Alert,
   SafeAreaView,
 } from "react-native";
-
+import Reduce from "../reducer/reduce";
+import { init } from "../reducer/init";
+import { SetPost, AddPostuse, AddImg } from "../reducer/output";
 function Addpost({ Setaddpost, addpost }) {
-  const init = {
-    post: "",
-    formdata: "",
-  };
-  const [post, getpost] = useState("");
-  const [formdata, setfromdata] = useState("");
+  const [state, dispatch] = useReducer(Reduce, init);
+  const { setpost } = state;
+  // const AddImg = async () => {
+  //   try {
+  //     DocumentPicker.getDocumentAsync(DocumentPicker.)
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+  console.log(DocumentPicker);
   return (
     <View style={style.addpostblock}>
       <Text style={style.textaddpost}>Thêm bài viết</Text>
       <TouchableOpacity
         style={style.buttonaddpost}
         activeOpacity={0.8}
-        onPress={() => Setaddpost(!addpost)}
+        onPress={() => AddPostuse(setpost)}
       >
         <Text>Đăng</Text>
       </TouchableOpacity>
@@ -40,13 +47,19 @@ function Addpost({ Setaddpost, addpost }) {
         style={style.inputuser}
         placeholder="bạn đang nghĩ gì"
         maxLength={40}
-        onChangeText={(newText) => getpost(newText)}
-        value={post}
+        onChangeText={(newText) => dispatch(SetPost(newText))}
       />
-      <Image
-        style={{ width: 360, height: 360,marginLeft:8,marginTop:10 }}
-        source={require("../accset/img/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpeg")}
-      />
+      <TouchableOpacity activeOpacity={0.9}>
+        <Image
+          style={{
+            maxWidth: 360,
+            maxHeight: 360,
+            marginLeft: 12,
+            marginTop: 10,
+          }}
+          source={require("../accset/img/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpeg")}
+        />
+      </TouchableOpacity>
       <View style={style.handleuser}>
         <TouchableOpacity
           onPress={() => Alert.alert("backend chưa làm")}
@@ -89,7 +102,6 @@ const style = StyleSheet.create({
     marginTop: 60,
     marginBottom: 10,
     fontSize: 24,
-    
   },
   buttonaddpost: {
     position: "absolute",

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import {
   View,
   Text,
@@ -9,9 +9,17 @@ import {
   SafeAreaView,
 } from "react-native";
 import Searchauthor from "../component/searchauthor";
-
+import Reduce from "../reducer/reduce";
+import { init } from "../reducer/init";
+import { SetAuthor } from "../reducer/output";
 export default function Search() {
+  const alert = (newtext) => {
+    return Alert.alert(newtext);
+  };
   const [authorsearch, setauthorsearch] = useState(false);
+  const [state, dispatch] = useReducer(Reduce, init);
+  const { setauthor } = state;
+  const [nameauthor, setnameauthor] = useState("");
   return (
     <SafeAreaView style={style.viewsearch}>
       <Text
@@ -23,22 +31,31 @@ export default function Search() {
           fontSize: 20,
         }}
       >
-        Tìm kiếm tác giả
+        Tìm kiếm
       </Text>
       <TextInput
-        style={{width:346,height:40,backgroundColor:'#ccc',paddingLeft:20,borderRadius:16,marginLeft:16,marginRight:16,marginTop:20}}
+        style={{
+          width: 346,
+          height: 40,
+          backgroundColor: "#ccc",
+          paddingLeft: 20,
+          borderRadius: 16,
+          marginLeft: 16,
+          marginRight: 16,
+          marginTop: 20,
+        }}
         placeholder="Tìm kiếm tác giả"
         maxLength={36}
-        onChangeText={(newtext)=>{
-          if(newtext==''){
-              setauthorsearch(false)
+        onChangeText={(newtext) => {
+          if (newtext == "") {
+            setauthorsearch(false);
+          } else if (newtext !== "") {
+            setauthorsearch(true);
           }
-          else {
-            setauthorsearch(true)
-          }
+          dispatch(SetAuthor(newtext));
         }}
       />
-      {authorsearch && <Searchauthor />}
+      {authorsearch && <Searchauthor setauthor={setauthor} />}
       <TouchableOpacity
         onPress={() => Alert.alert("test")}
         activeOpacity={0.9}

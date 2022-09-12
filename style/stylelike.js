@@ -37,8 +37,9 @@ export const stylelike = StyleSheet.create({
     backgroundColor: "#ccc",
     width: 360,
     height: 360,
-    margin: 8,
     borderRadius: 8,
+    marginLeft: 16,
+    marginBottom: 8,
   },
   handleblock: {
     bottom: 10,

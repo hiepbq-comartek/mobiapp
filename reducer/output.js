@@ -1,41 +1,59 @@
-import {Numbercomment,SetJob , Numberlike ,Addimg ,AddJob ,Adduser ,CheckLike ,Checkcomment ,CheckFollow ,Delete} from "./variabale"
+import {
+  Numbercomment,
+  Setauthor,
+  Numberlike,
+  Addimg,
+  AddJob,
+  Adduser,
+  CheckLike,
+  Checkcomment,
+  CheckFollow,
+  Setcomment,
+  Setpost,
+  Addpost,
+} from "./variabale";
 
-
-export  const Setjob = (payload) => {
+export const SetAuthor = (payload) => {
   return {
-    type: SetJob,
+    type: Setauthor,
     payload,
   };
 };
-export  const Addjob = (payload) => {
-    return {
-      type: AddJob,
-      payload,
-    };
+export const SetPost = (payload) => {
+  return {
+    type: Setpost,
+    payload,
   };
-  export  const Addcommnet = (payload) => {
-    return {
-      type: AddJob,
-      payload,
-    };
+};
+export const AddPostuse = (payload) => {
+  return {
+    type: Addpost,
+    payload,
   };
-export  const Checklike = (payload) => {
-    return {
-      type: CheckLike,
-      payload,
-    };
+};
+export const SetComment = (payload) => {
+  return {
+    type: Setcomment,
+    payload,
   };
-export  const Checkfollow = (payload) => {
+};
+export const Addcommnet = (payload) => {
+  return {
+    type: AddJob,
+    payload,
+  };
+};
+export const Checklike = (payload) => {
+  return {
+    type: CheckLike,
+    payload,
+  };
+};
+export const Checkfollow = (payload) => {
   return {
     type: CheckFollow,
     payload,
   };
-  };
-export const Deletejob = (payload) => {
-    return {
-      type: Delete,
-      payload,
-    };
 };
 export const CheckComment = (payload) => {
   return {
