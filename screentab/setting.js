@@ -20,7 +20,7 @@ const SettingsStack = createNativeStackNavigator();
 function ProfileStackScreen({ navigation }) {
   const [setting, Setsetting] = useState(false);
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ flex: 1,width:'100%',paddingBottom:20,backgroundColor:'#000' }}>
       {setting && <Settinguser Setsetting={Setsetting} setting={setting} />}
       <View style={style.projectuse}>
         <Image
@@ -31,16 +31,18 @@ function ProfileStackScreen({ navigation }) {
         <Text style={style.textstatus}>23/5/2001</Text>
       </View>
       <View style={style.handledispkay}>
+        <ScrollView>
         <TouchableOpacity activeOpacity={0.8} style={style.buttoncolor}>
-          <Text>Đảo màu giao diện </Text>
+          <Text style={{color:'#0ef08c'}}>Đảo màu giao diện </Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => Setsetting(!setting)}
           activeOpacity={0.8}
           style={style.buttoncolor}
         >
-          <Text>Thay đổi thông tin </Text>
+          <Text style={{color:'#0ef08c'}}>Thay đổi thông tin </Text>
         </TouchableOpacity>
+        </ScrollView>
       </View>
 
       <View style={style.account}>
@@ -63,25 +65,28 @@ const style = StyleSheet.create({
     position: "absolute",
     fontSize: 16,
     left: 70,
+    color:'#0ef08c'
   },
   textstatus: {
     top: 32,
     position: "absolute",
     fontSize: 10,
     left: 70,
+    color:'#0ef08c'
   },
   handledispkay: {
-    width: 350,
     height: 460,
-    margin: 20,
+    marginTop:16
   },
   buttoncolor: {
-    backgroundColor: "#fff",
+    backgroundColor:'#161a1f',
     height: 30,
     justifyContent: "center",
-    width: 350,
     alignItems: "center",
     marginBottom: 4,
+    marginLeft:20,
+    marginRight:20,
+    borderRadius:16
   },
 });
 export default ProfileStackScreen;

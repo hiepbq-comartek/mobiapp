@@ -21,8 +21,9 @@ export const stylehome = StyleSheet.create({
     paddingHorizontal: 32,
     borderRadius: 40,
     elevation: 2,
-    backgroundColor: "#fff",
+    backgroundColor: "#000",
     margin: 20,
+    color:'#0ef08c'
   },
   textstatus_Block: {
     marginLeft: 10,

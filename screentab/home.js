@@ -44,7 +44,7 @@ function HomeStackScreen({ navigation }) {
   const [state, dispatch] = useReducer(Reduce, init);
   const { checklike, setcomment } = state;
   return (
-    <SafeAreaView style={{ paddingBottom: 20, marginBottom: 100, flex: 1 }}>
+    <SafeAreaView style={{ flex: 1,width:'100%',paddingBottom:20,backgroundColor:'#000' }}>
       {<Startblock headerShown={headerShown} Setaddpost={Setaddpost} />}
       {<Startmin headerShown={headerShown} Setaddpost={Setaddpost} />}
       {addpost && <Addpost Setaddpost={Setaddpost} addpost={addpost} />}
@@ -69,37 +69,39 @@ function HomeStackScreen({ navigation }) {
             >
               <View
                 style={{
-                  width: 360,
-                  backgroundColor: "#ccc",
+                  backgroundColor:'#161a1f',
                   borderRadius: 16,
                   marginBottom: 12,
-                  marginLeft: 12,
+                  marginLeft: 8,
+                  marginRight:8
                 }}
               >
-                <View style={{ flexDirection: "row" }}>
+                <View style={{ flexDirection: "row",marginLeft:10,marginRight:10,flexWrap:'wrap' }}>
                   <Image
                     style={{
-                      maxWidth: 40,
-                      maxHeight: 40,
+                      width: 40,
+                      height: 40,
                       borderRadius: 40,
-                      margin: 10,
+                      margin: 8,
                     }}
                     source={require("../accset/img/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpeg")}
                   />
-                  <TouchableOpacity
+                  <View style={{marginTop:8}}>
+                  <TouchableOpacity style={{width:200}}
                     activeOpacity={0.2}
                     onPress={() => navigation.navigate("proauthor")}
                   >
-                    <Text style={{ top: 10, fontSize: 16, left: 6, zIndex: 2 }}>
+                    <Text style={{fontSize:20,marginBottom:4,color:'#0ef08c'}}>
                       {data.name}
                     </Text>
                   </TouchableOpacity>
-                  <Text style={{ top: 32, left: -80, fontSize: 12 }}>
+                  <Text style={{ fontSize: 12,color:'#0ef08c' }}>
                     Đã đăng 5 giờ trước
                   </Text>
+                  </View>
                 </View>
                 <View>
-                  <Text style={{ left: 12 }}>{data.titile}</Text>
+                  <Text style={{ left: 12,color:'#0ef08c' }}>{data.titile}</Text>
                 </View>
                 <TouchableOpacity
                   activeOpacity={0.95}
@@ -125,37 +127,16 @@ function HomeStackScreen({ navigation }) {
                     marginLeft: 20,
                     marginRight: 20,
                     top: 12,
+                  
                   }}
                 >
-                  <Text style={{ marginLeft: 10, marginRight: 10 }}>
+                  <Text style={{ marginLeft: 10, marginRight: 10,fontSize:20,color:'#0ef08c' }}>
                     {data.numlike}{" "}
-                    <Foundation name="heart" size={20} color="red" />
+                    <Foundation name="heart" size={28} color="red" />
                   </Text>
-                  <Text style={{}}>
-                    10 <FontAwesome name="comment" size={20} color="red" />
+                  <Text style={{fontSize:20,color:'#0ef08c'}}>
+                    10 <FontAwesome name="comment" size={28} color="red" />
                   </Text>
-                </View>
-                <View style={stylehome.boderpostbottom}></View>
-                <View
-                  style={{
-                    flexDirection: "row",
-                    width: 320,
-                    marginLeft: 20,
-                    marginRight: 20,
-                    top: 12,
-                  }}
-                >
-                  <TouchableOpacity
-                    onPress={() => dispatch(Checklike(!checklike))}
-                    activeOpacity={0.8}
-                    style={{ marginLeft: 20, marginRight: 10 }}
-                  >
-                    {checklike ? (
-                      <AntDesign name="hearto" size={20} color="black" />
-                    ) : (
-                      <AntDesign name="heart" size={20} color="red" />
-                    )}
-                  </TouchableOpacity>
                 </View>
                 <View
                   style={{
@@ -167,7 +148,8 @@ function HomeStackScreen({ navigation }) {
                 >
                   <TextInput
                     style={{
-                      backgroundColor: "#fff",
+                      color:'#0ef08c',
+                      backgroundColor: "#000",
                       width: 260,
                       fontSize: 16,
                       height: 24,
@@ -188,7 +170,7 @@ function HomeStackScreen({ navigation }) {
                       <Ionicons
                         name="add-circle-outline"
                         size={24}
-                        color="black"
+                        color="#0ef08c"
                       />
                     </Text>
                   </TouchableOpacity>

@@ -7,6 +7,8 @@ import {
   TouchableOpacity,
   Alert,
   SafeAreaView,
+  ScrollView,
+  Image
 } from "react-native";
 import Searchauthor from "../component/searchauthor";
 import Reduce from "../reducer/reduce";
@@ -21,57 +23,32 @@ export default function Search() {
   const { setauthor } = state;
   const [nameauthor, setnameauthor] = useState("");
   return (
-    <SafeAreaView style={style.viewsearch}>
+    <SafeAreaView style={{ flex: 1,width:'100%',paddingBottom:20,backgroundColor:'#000' }}>
+      <View style={{
+          alignItems: "center",
+        }}>
       <Text
         style={{
-          alignItems: "center",
-          alignContent: "center",
-          width: 340,
-          left: 120,
-          fontSize: 20,
+          color:'#0ef08c',
+          fontSize:20
         }}
       >
-        Tìm kiếm
+        Video
       </Text>
-      <TextInput
-        style={{
-          width: 346,
-          height: 40,
-          backgroundColor: "#ccc",
-          paddingLeft: 20,
-          borderRadius: 16,
-          marginLeft: 16,
-          marginRight: 16,
-          marginTop: 20,
-        }}
-        placeholder="Tìm kiếm tác giả"
-        maxLength={36}
-        onChangeText={(newtext) => {
-          if (newtext == "") {
-            setauthorsearch(false);
-          } else if (newtext !== "") {
-            setauthorsearch(true);
-          }
-          dispatch(SetAuthor(newtext));
-        }}
-      />
-      {authorsearch && <Searchauthor setauthor={setauthor} />}
-      <TouchableOpacity
-        onPress={() => Alert.alert("test")}
-        activeOpacity={0.9}
-        style={style.handlesearh}
-      >
-        <Text>Tìm kiếm</Text>
-      </TouchableOpacity>
+      </View>
+      <ScrollView>
+        <View style={{height:60,backgroundColor:'#161a1f',borderRadius:16,marginTop:8,marginLeft:12,marginRight:12,flexDirection:'row'}}>
+          <Image style={{width:40,height:40,borderRadius:40,margin:12}} source={require("../accset/img/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpeg")} />
+          <View style={{marginRight:12,marginBottom:12,marginTop:12}}>
+          <Text style={{color:'#0ef08c',fontSize:16}}>Quang Hải</Text>
+          <Text style={{color:'#0ef08c',fontSize:12}}>Đã thích bạn lắm rồi</Text>
+          </View>
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
 const style = StyleSheet.create({
-  viewsearch: {
-    width: 390,
-    height: 9999999,
-    display: "flex",
-  },
   styleInput: {
     backgroundColor: "#ccc",
     width: 370,

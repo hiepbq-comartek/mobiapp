@@ -12,7 +12,6 @@ import Comfigpassword from "./login/resetpass";
 import SearchStackScreen from "./screentab/search";
 import Checkemail from "./login/checkmail";
 import PageStart from "./login/pagestart";
-import { AntDesign } from "@expo/vector-icons";
 import { SimpleLineIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import Addpost from "./component/addpost";
@@ -21,6 +20,7 @@ import Img from "./tabprofile/img";
 import Postuser from "./tabprofile/postuser";
 import { MaterialIcons } from "@expo/vector-icons";
 import Profileauthor from "./tabprofile/profileauthor";
+import { Octicons } from '@expo/vector-icons';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -43,13 +43,14 @@ function Homes() {
         headerShown: false,
         tabBarStyle: {
           position: "absolute",
+          backgroundColor:"#161a1f",
           width: 360,
           borderRadius: 16,
           right: 10,
           left: 8,
           bottom: 20,
           paddingTop: 10,
-          height: 90,
+          // height: 90,
         },
       }}
     >
@@ -57,17 +58,8 @@ function Homes() {
         name="Trang chủ"
         component={HomeStackScreen}
         options={{
-          tabBarIcon: ({ color, size }) => (
-            <SimpleLineIcons name="home" size={size} color={color} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Tìm kiếm"
-        component={SearchStackScreen}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <AntDesign name="search1" size={size} color={color} />
+          tabBarIcon: ({focused, color, size }) => ( focused ?
+            <Ionicons name="ios-home" size={size} color={color} />:<Ionicons name="home-outline" size={size} color={color} />
           ),
         }}
       />
@@ -75,8 +67,17 @@ function Homes() {
         name="Khám Phá"
         component={LikeStackScreen}
         options={{
+          tabBarIcon: ({focused, color, size }) => (focused ?
+            <Ionicons name="ios-people" size={size} color={color} />:<Ionicons name="people-outline" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Video"
+        component={SearchStackScreen}
+        options={{
           tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="people-outline" size={size} color={color} />
+            <Octicons name="video" size={size} color={color} />
           ),
         }}
       />
@@ -93,8 +94,8 @@ function Homes() {
         name="Cài đặt"
         component={ProfileStackScreen}
         options={{
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="settings-outline" size={24} color={color} />
+          tabBarIcon: ({focused, color, size }) => (focused?
+            <Ionicons name="ios-settings" size={size} color={color} />:<Ionicons name="settings-outline" size={size} color={color} />
           ),
         }}
       />

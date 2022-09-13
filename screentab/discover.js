@@ -20,9 +20,9 @@ function LikeStackScreen() {
   const [state, dispatch] = useReducer(Reduce, init);
   const { checkFollow } = state;
   return (
-    <SafeAreaView style={{ paddingBottom: 20, marginBottom: 100, flex: 1 }}>
+    <SafeAreaView style={{ flex: 1,width:'100%',paddingBottom:20,backgroundColor:'#000' }}>
       <View style={stylelike.textcenter}>
-        <Text style={stylelike.textcenter}>Khám Phá</Text>
+        <Text style={{color:'#0ef08c',fontSize:20}}>Khám Phá</Text>
       </View>
       <ScrollView>
         {dataauthor ? (
@@ -61,7 +61,6 @@ function LikeStackScreen() {
               <Text style={stylelike.textstatus_Block}>{data.titile}</Text>
               <Image
                 style={{
-                  width: 340,
                   height: 220,
                   marginTop: 10,
                   marginLeft: 10,

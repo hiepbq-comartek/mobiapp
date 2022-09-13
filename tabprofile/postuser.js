@@ -14,27 +14,29 @@ import { datas } from "../server/data";
 export default function Postuser({ navigation, route }) {
   console.log(route);
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ flex: 1,width:'100%',paddingBottom:20,backgroundColor:'#000' }}>
       <ScrollView>
         <TouchableOpacity
           activeOpacity={0.9}
           onPress={() => navigation.goBack()}
           style={{ top: 0, left: 8, width: 360 }}
         >
-          <Ionicons name="arrow-back" size={24} color="black" />
+          <Ionicons name="arrow-back" size={24} color='#0ef08c' />
         </TouchableOpacity>
-        <View>
-          <View style={{ flexDirection: "row", left: 12, width: 360 }}>
+        <View style={{}}>
+          <View style={{ flexDirection: "row",marginLeft:10,marginRight:10,flexWrap:'wrap' }}>
             <Image
-              style={{ width: 40, height: 40, borderRadius: 40, margin: 10 }}
+              style={{width:40,height:40,borderRadius:40,margin:12}}
               source={require("../accset/img/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpeg")}
             />
-            <Text style={{ top: 10 }}>{route.params.name}</Text>
-            <Text style={{ top: 32, left: -76, fontSize: 12 }}>
+            <View style={{marginRight:12,marginBottom:12,marginTop:12}}>
+            <Text style={{ top: 10,color:'#0ef08c' }}>{route.params.name}</Text>
+            <Text style={{ top: 32, left: -76, fontSize: 12,color:'#0ef08c' }}>
               Đã đăng 5 giờ trước
             </Text>
+            </View>
           </View>
-          <View style={{ left: 20, top: 12 }}>
+          <View style={{ left: 20, top: 12,color:'#0ef08c' }}>
             <Text>{route.params.titile}</Text>
           </View>
           <TouchableOpacity

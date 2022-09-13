@@ -16,28 +16,30 @@ import { dataauthor } from "../server/dataauthor";
 
 function HomeStackScreens() {
   return (
-    <SafeAreaView style={{ paddingBottom: 20, marginBottom: 100, flex: 1 }}>
+    <SafeAreaView style={{ flex: 1,width:'100%',paddingBottom:20,backgroundColor:'#000' }}>
+      <View style={{
+          alignItems: "center",
+        }}>
       <Text
         style={{
-          alignItems: "center",
-          alignContent: "center",
-          width: 390,
-          left: 112,
-          fontSize: 20,
-          marginBottom: 20,
+          color:'#0ef08c',
+          fontSize:20
         }}
       >
         Tác giả đã theo dõi
       </Text>
+      </View>
       <ScrollView>
         {dataauthor.map((data) => (
-          <View style={style.blockfrend}>
+          <View style={{height:60,backgroundColor:'#161a1f',borderRadius:16,marginTop:8,marginLeft:12,marginRight:12,flexDirection:'row'}}>
             <Image
-              style={{ width: 24, height: 24, borderRadius: 40, margin: 4 }}
+              style={{width:40,height:40,borderRadius:40,margin:12}}
               source={require("../accset/img/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpeg")}
             />
-            <Text style={style.namefriend}>{data.name}</Text>
-            <Text style={style.status}>Đang hoạt động</Text>
+            <View style={{marginRight:12,marginBottom:12,marginTop:12}}>
+            <Text style={{color:'#0ef08c',fontSize:16}}>{data.name}</Text>
+            <Text style={{color:'#0ef08c',fontSize:12}}>Đang hoạt động</Text>
+            </View>
           </View>
         ))}
 
@@ -83,7 +85,7 @@ const style = StyleSheet.create({
     marginBottom: 4,
     marginLeft: 20,
     marginRight: 20,
-    height: 30,
+    height: 60,
     borderRadius: 8,
   },
   namefriend: {

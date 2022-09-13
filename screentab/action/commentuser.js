@@ -9,7 +9,7 @@ export default function Commentuser() {
         <View
           style={{
             flexDirection: "row",
-            backgroundColor: "#fff",
+            backgroundColor: "#000",
             marginLeft: 20,
             marginRight: 20,
             width: 330,
@@ -28,15 +28,15 @@ export default function Commentuser() {
             />
           </View>
           <View>
-            <Text style={{ top: 10, fontSize: 16 }}>Quang Lam</Text>
+            <Text style={{ top: 10, fontSize: 16,color:'#0ef08c' }}>Quang Lam</Text>
             <View style={{ top: 16 }}>
-              <Text style={{ fontSize: 12 }}>Very Good</Text>
+              <Text style={{ fontSize: 12,color:'#0ef08c' }}>Very Good</Text>
             </View>
             <TouchableOpacity
               activeOpacity={0.9}
               style={{ right: -220, top: -16 }}
             >
-              <AntDesign name="hearto" size={24} color="black" />
+              <AntDesign name="hearto" size={24} color="#0ef08c" />
             </TouchableOpacity>
           </View>
         </View>

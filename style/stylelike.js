@@ -10,12 +10,14 @@ export const stylelike = StyleSheet.create({
     position: "absolute",
     fontSize: 16,
     left: 70,
+    color:'#0ef08c'
   },
   textstatus: {
     top: 32,
     position: "absolute",
     fontSize: 10,
     left: 70,
+    color:'#0ef08c'
   },
   addstatus: {
     alignItems: "center",
@@ -29,16 +31,17 @@ export const stylelike = StyleSheet.create({
   },
   textstatus_Block: {
     marginLeft: 10,
+    color:'#0ef08c'
   },
   textadd: {
     fontSize: 16,
   },
   view: {
-    backgroundColor: "#ccc",
-    width: 360,
+    backgroundColor:'#161a1f',
     height: 360,
     borderRadius: 8,
     marginLeft: 16,
+    marginRight:16,
     marginBottom: 8,
   },
   handleblock: {
@@ -78,5 +81,6 @@ export const stylelike = StyleSheet.create({
   textcenter: {
     alignItems: "center",
     fontSize: 20,
+    marginBottom:8
   },
 });
