@@ -9,12 +9,11 @@ import LikeStackScreen from "./screentab/discover";
 import Siginin from "./login/siginin";
 import Signout from "./login/siginout";
 import Comfigpassword from "./login/resetpass";
-import SearchStackScreen from "./screentab/search";
+import SearchStackScreen from "./screentab/video";
 import Checkemail from "./login/checkmail";
 import PageStart from "./login/pagestart";
 import { SimpleLineIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
-import Addpost from "./component/addpost";
 import Addprofile from "./tabprofile/addprofile";
 import Img from "./tabprofile/img";
 import Postuser from "./tabprofile/postuser";
@@ -106,8 +105,8 @@ function Tabprofile() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="img" component={Img} />
-      <Stack.Screen name="addpost" component={Addpost} />
       <Stack.Screen name="addprofile" component={Addprofile} />
+      
     </Stack.Navigator>
   );
 }

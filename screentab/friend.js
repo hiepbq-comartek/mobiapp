@@ -14,7 +14,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 const HomeStack = createNativeStackNavigator();
 import { dataauthor } from "../server/dataauthor";
 
-function HomeStackScreens() {
+function FriendsStackScreen() {
   return (
     <SafeAreaView style={{ flex: 1,width:'100%',paddingBottom:20,backgroundColor:'#000' }}>
       <View style={{
@@ -42,33 +42,6 @@ function HomeStackScreens() {
             </View>
           </View>
         ))}
-
-        {/* {typeof data !== undefined ? (
-          data.map(() => (
-            <>
-              <View style={style.blockfrend}>
-          <Image
-            style={{ width: 24, height: 24, borderRadius: 40, margin: 4 }}
-            source={require("../accset/img/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpeg")}
-          />
-          <Text style={style.namefriend}>Quang Hiệp</Text>
-          <Text style={style.status}>Đang hoạt động</Text>
-        </View>
-        <View style={style.blockfrend}>
-          <Image
-            style={{ width: 24, height: 24, borderRadius: 40, margin: 4 }}
-            source={require("../accset/img/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpeg")}
-          />
-          <Text style={style.namefriend}>Quang Hiệp</Text>
-          <Text style={style.status}>Đang hoạt động</Text>
-        </View>
-            </>
-          ))
-        ) : (
-          <View>
-            <Text style={{justifyContent: "center",alignItems: "center",marginTop:20}}>Bạn đang cô đơn :))</Text>
-          </View>
-        )} */}
       </ScrollView>
     </SafeAreaView>
   );
@@ -100,4 +73,4 @@ const style = StyleSheet.create({
     fontSize: 12,
   },
 });
-export default HomeStackScreens;
+export default FriendsStackScreen;

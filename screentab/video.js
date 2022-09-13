@@ -21,7 +21,6 @@ export default function Search() {
   const [authorsearch, setauthorsearch] = useState(false);
   const [state, dispatch] = useReducer(Reduce, init);
   const { setauthor } = state;
-  const [nameauthor, setnameauthor] = useState("");
   return (
     <SafeAreaView style={{ flex: 1,width:'100%',paddingBottom:20,backgroundColor:'#000' }}>
       <View style={{
@@ -37,13 +36,8 @@ export default function Search() {
       </Text>
       </View>
       <ScrollView>
-        <View style={{height:60,backgroundColor:'#161a1f',borderRadius:16,marginTop:8,marginLeft:12,marginRight:12,flexDirection:'row'}}>
-          <Image style={{width:40,height:40,borderRadius:40,margin:12}} source={require("../accset/img/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpeg")} />
-          <View style={{marginRight:12,marginBottom:12,marginTop:12}}>
-          <Text style={{color:'#0ef08c',fontSize:16}}>Quang Hải</Text>
-          <Text style={{color:'#0ef08c',fontSize:12}}>Đã thích bạn lắm rồi</Text>
-          </View>
-        </View>
+        
+       
       </ScrollView>
     </SafeAreaView>
   );

@@ -9,16 +9,11 @@ import {
   SafeAreaView,
   TextInput,
 } from "react-native";
-import Addpost from "../../component/addpost";
 import { stylehome } from "../../style/stylehome";
 import { useState } from "react";
-function  Startblock({headerShown,Setaddpost}){
-    const alert=(text)=>{
-        return Alert.alert(text)
-    }
+function  Startblock({Setaddpost,addpost}){
     return(
       <>
-      {headerShown && (
         <View style={{flexDirection:'row',width:320,left:28,paddingBottom:4} }>
            <View style={{backgroundColor:'#161a1f',borderRadius:16,width:320,height:160}}>
            <View style={stylehome.projectuse}>
@@ -35,14 +30,14 @@ function  Startblock({headerShown,Setaddpost}){
            <TouchableOpacity
             activeOpacity={0.8}
             style={stylehome.addporst}
-            onPress={() => Setaddpost(true)}
+            onPress={()=>Setaddpost(!addpost)}
             >
             <Text style={{color:'#0ef08c'}}>Bạn đang nghĩ gì ?</Text>
            </TouchableOpacity>
            </View>
         </View>
         </View>
-        )}</>
+</>
     )
 }
 export default Startblock
